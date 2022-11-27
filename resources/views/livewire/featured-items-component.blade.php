@@ -77,7 +77,8 @@
                                         wire:loading.attr="disabled">
                                         <i class="fa-solid fa-cart-plus icon"></i>
                                     </button>
-                                    <button class="icon-copy" data-clipboard-text="http://google.com"
+                                    <button class="icon-copy"
+                                        data-clipboard-text="{{ route('product.details', ['slug' => $product->slug]) }}"
                                         data-bs-toggle="tooltip" data-bs-title="Link Coppied!" data-bs-trigger="focus"
                                         data-bs-delay='{"hide":600}' data-bs-placement="right" onclick="this.focus()">
                                         <i class="fa-solid fa-share-nodes icon"></i>
