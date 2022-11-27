@@ -1,0 +1,31 @@
+- rename .env.example to .env and change values
+as you see fit (you can add facebook client id and secret,
+if you added it you will need
+to use https environment and you have to
+edit app_url with the correct url for the app).
+
+- make sure you have a database working and
+  configured in .env file (default: fashion, 127.0.0.1, root)
+
+- composer install
+
+- php artisan key:generate
+
+- php artisan config:cache
+
+- php artisan route:cache
+
+- php artisan view:cache
+
+- run the migrations and seed to make
+  a good working site for testing
+
+- php artisan migrate:fresh --seed
+
+- php artisan serve (or whatever webserver you would use to access the site).
+
+- the default migration makes 2 default accounts admin and user
+
+	user:admin@admin.com password:123123
+	user:user@user.com password:123123
+  also it will make 30 product with categories and images to test
