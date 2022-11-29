@@ -140,7 +140,7 @@
                                             <i class="fa-solid fa-cart-plus icon"></i>
                                         </button>
                                         <button class="icon-copy"
-                                            data-clipboard-text="{{ route('product.details', ['slug' => $product->slug]) }}"
+                                            data-clipboard-text="{{ route('product.details', ['slug' => $item->model->slug]) }}"
                                             data-bs-toggle="tooltip" data-bs-title="Link Coppied!"
                                             data-bs-trigger="focus" data-bs-delay='{"hide":600}'
                                             data-bs-placement="right" onclick="this.focus()">
