@@ -11,3 +11,4 @@ CHANGELOG.md export-ignore
 .styleci.yml export-ignore
 *.css linguist-detectable=false
 *.blade.php linguist-detectable=false
+*.scss linguist-detectable=false
