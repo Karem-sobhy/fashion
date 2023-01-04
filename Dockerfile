@@ -1,9 +1,9 @@
 FROM composer:latest as build
 COPY . /app/
 #production mode
-# RUN composer install --prefer-dist --no-dev --optimize-autoloader --no-interaction
+RUN composer install --prefer-dist --no-dev --optimize-autoloader --no-interaction
 #staging mode
-RUN composer install --prefer-dist --optimize-autoloader --no-interaction
+# RUN composer install --prefer-dist --optimize-autoloader --no-interaction
 
 FROM php:8.1.12-apache as production
 
