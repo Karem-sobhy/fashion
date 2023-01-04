@@ -27,11 +27,15 @@ class FacebookController extends Controller
         }
         $facebook = Socialite::driver('facebook')->user();
 
+        if(!$facebook->email){
+            return Socialite::driver('facebook')->reRequest()->redirect();
+        }
+
         $user = User::firstOrCreate(
-            ['email' => $facebook->getEmail()],
+            ['email' => $facebook->email],
             [
-                'name' =>  $facebook->getName(),
-                'password' => Hash::make($facebook->getName() . '@' . $facebook->getId())
+                'name' =>  $facebook->name,
+                'password' => Hash::make($facebook->name . '@' . $facebook->id)
             ]
         );
         Auth::login($user);
