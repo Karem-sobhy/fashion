@@ -11,6 +11,7 @@ class Product extends Model implements Buyable
     use HasFactory;
     protected $table = 'products';
     protected $guarded = '';
+    protected $with = ['orderItem','category'];
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -66,7 +67,7 @@ class Product extends Model implements Buyable
     }
     public function rating()
     {
-        $rating = round(OrderItem::where('product_id', $this->id)->whereNotNull('review')->avg('review'));
+        $rating = round($this->orderItem->where('product_id', $this->id)->whereNotNull('review')->avg('review'));
         return $rating;
     }
 }
