@@ -8,7 +8,7 @@ RUN composer install --prefer-dist --no-dev --optimize-autoloader --no-interacti
 FROM php:8.1.12-apache as production
 
 RUN docker-php-ext-configure opcache --enable-opcache && \
-    docker-php-ext-install pdo pdo_mysql
+    docker-php-ext-install pdo pdo_mysql opcache && docker-php-ext-configure opcache --enable-opcache
 COPY docker/php/conf.d/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 COPY --from=build /app /var/www/html
